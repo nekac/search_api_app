@@ -3842,10 +3842,35 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /*!*************************!*\
   !*** ./src/js/index.js ***!
   \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nError: Cannot find module '@babel/preset-env' from 'C:\\\\Projects\\\\search_api_app'\\n    at Function.resolveSync [as sync] (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\resolve\\\\lib\\\\sync.js:89:15)\\n    at resolveStandardizedName (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\files\\\\plugins.js:101:31)\\n    at resolvePreset (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\files\\\\plugins.js:58:10)\\n    at loadPreset (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\files\\\\plugins.js:77:20)\\n    at createDescriptor (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\config-descriptors.js:154:9)\\n    at C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\config-descriptors.js:109:50\\n    at Array.map (<anonymous>)\\n    at createDescriptors (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\config-descriptors.js:109:29)\\n    at createPresetDescriptors (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\config-descriptors.js:101:10)\\n    at presets (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\config-descriptors.js:47:19)\\n    at mergeChainOpts (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\config-chain.js:384:26)\\n    at C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\config-chain.js:347:7\\n    at Generator.next (<anonymous>)\\n    at buildRootChain (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\config-chain.js:129:29)\\n    at buildRootChain.next (<anonymous>)\\n    at loadPrivatePartialConfig (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\partial.js:99:62)\\n    at loadPrivatePartialConfig.next (<anonymous>)\\n    at Function.<anonymous> (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\partial.js:125:25)\\n    at Generator.next (<anonymous>)\\n    at evaluateSync (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\gensync\\\\index.js:244:28)\\n    at Function.sync (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\gensync\\\\index.js:84:14)\\n    at Object.<anonymous> (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\@babel\\\\core\\\\lib\\\\config\\\\index.js:43:61)\\n    at Object.<anonymous> (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\babel-loader\\\\lib\\\\index.js:151:26)\\n    at Generator.next (<anonymous>)\\n    at asyncGeneratorStep (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\babel-loader\\\\lib\\\\index.js:3:103)\\n    at _next (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\babel-loader\\\\lib\\\\index.js:5:194)\\n    at C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\babel-loader\\\\lib\\\\index.js:5:364\\n    at new Promise (<anonymous>)\\n    at Object.<anonymous> (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\babel-loader\\\\lib\\\\index.js:5:97)\\n    at Object._loader (C:\\\\Projects\\\\search_api_app\\\\node_modules\\\\babel-loader\\\\lib\\\\index.js:231:18)\");\n\n//# sourceURL=webpack:///./src/js/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _models_Search__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./models/Search */ \"./src/js/models/Search.js\");\n/* harmony import */ var _views_searchView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/searchView */ \"./src/js/views/searchView.js\");\n// kind of a controller in MVC architecture logic\n\n\nconsole.log(\"Function add: \".concat(Object(_views_searchView__WEBPACK_IMPORTED_MODULE_1__[\"add\"])(ID, 2)));\nconsole.log(\"Function sub: \".concat(Object(_views_searchView__WEBPACK_IMPORTED_MODULE_1__[\"sub\"])(ID, 2)));\nconsole.log(\"Oter file: \".concat(_models_Search__WEBPACK_IMPORTED_MODULE_0__[\"default\"]));\n\n//# sourceURL=webpack:///./src/js/index.js?");
+
+/***/ }),
+
+/***/ "./src/js/models/Search.js":
+/*!*********************************!*\
+  !*** ./src/js/models/Search.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (\"Hello bre!\");\n\n//# sourceURL=webpack:///./src/js/models/Search.js?");
+
+/***/ }),
+
+/***/ "./src/js/views/searchView.js":
+/*!************************************!*\
+  !*** ./src/js/views/searchView.js ***!
+  \************************************/
+/*! exports provided: add, sub, ID */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"add\", function() { return add; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sub\", function() { return sub; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ID\", function() { return ID; });\nvar add = function add(a, b) {\n  return a + b;\n};\nvar sub = function sub(a, b) {\n  return a - b;\n};\nvar ID = 5;\n\n//# sourceURL=webpack:///./src/js/views/searchView.js?");
 
 /***/ }),
 
