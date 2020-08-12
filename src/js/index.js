@@ -4,7 +4,7 @@ kind of a controller in MVC architecture logic
 
 import Search from "./models/Search";
 import * as searchView from "./views/searchView";
-import { elements } from "./views/base";
+import { elements, renederSpinner, clearSpinner } from "./views/base";
 
 /** GLOBAL APP STATE
  * search object
@@ -23,9 +23,11 @@ const controlSearch = async () => {
     // prepare user interface
     searchView.clearInput();
     searchView.clearResults();
+    renederSpinner(elements.searchResult);
     // search for recipes
     await state.search.getResult();
     // render results on UI
+    clearSpinner();
     searchView.renderResults(state.search.result);
   }
 };
@@ -33,4 +35,14 @@ const controlSearch = async () => {
 elements.searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   controlSearch();
+});
+
+elements.searchResultPages.addEventListener("click", (e) => {
+  // cosest ancestor of the current element
+  const button = e.target.closest(".btn-inline");
+  if (button) {
+    const goToPage = parseInt(button.dataset.goto, 10);
+    searchView.clearResults();
+    searchView.renderResults(state.search.result, goToPage);
+  }
 });
