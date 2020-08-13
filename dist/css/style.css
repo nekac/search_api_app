@@ -606,5 +606,5 @@ body {
 }
 
 li {
-  display: block;
+  display: block !important;
 }
