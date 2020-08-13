@@ -4,7 +4,9 @@ kind of a controller in MVC architecture logic
 
 import Search from "./models/Search";
 import * as searchView from "./views/searchView";
+import * as recipeView from "./views/recipeView";
 import { elements, renederSpinner, clearSpinner } from "./views/base";
+import Recipe from "./models/Recipe";
 
 /** GLOBAL APP STATE
  * search object
@@ -14,6 +16,7 @@ import { elements, renederSpinner, clearSpinner } from "./views/base";
  */
 const state = {};
 
+/* SEARCH CONTROLLER */
 const controlSearch = async () => {
   // get query from the view
   const query = searchView.getInput();
@@ -24,11 +27,17 @@ const controlSearch = async () => {
     searchView.clearInput();
     searchView.clearResults();
     renederSpinner(elements.searchResult);
-    // search for recipes
-    await state.search.getResult();
-    // render results on UI
-    clearSpinner();
-    searchView.renderResults(state.search.result);
+
+    try {
+      // search for recipes
+      await state.search.getResult();
+      // render results on UI
+      clearSpinner();
+      searchView.renderResults(state.search.result);
+    } catch (e) {
+      console.log(e);
+      clearSpinner();
+    }
   }
 };
 
@@ -46,3 +55,39 @@ elements.searchResultPages.addEventListener("click", (e) => {
     searchView.renderResults(state.search.result, goToPage);
   }
 });
+
+/* RECIPE CONTROLLER */
+
+const controlRecipe = async () => {
+  const id = window.location.hash.replace("#", ""); // id from url
+  if (id) {
+    // prepare UI for the changes
+    recipeView.clearRecepie();
+    renederSpinner(elements.recipe);
+
+    // hilight selected search item
+    if (state.search) searchView.highlightedSelected(id);
+
+    // create a new recipe object
+    state.recipe = new Recipe(id);
+
+    try {
+      // get recipe data and parse ingredients
+      await state.recipe.getRecipe();
+      state.recipe.parseIngredients();
+      // call functions for calculatings
+      state.recipe.calcTime();
+      state.recipe.calcServings();
+      // render the recipe
+      clearSpinner();
+      recipeView.renderRecipe(state.recipe);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+};
+
+// multiple events with same callback
+["hashchange", "load"].forEach((event) =>
+  window.addEventListener(event, controlRecipe)
+);
